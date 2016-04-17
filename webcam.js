@@ -8,6 +8,9 @@
       width = 500,
       height = 375;
 
+  var imgInp =  document.getElementById("imgInp");
+  var myImg =  document.getElementById("myImg");
+
  
   navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
    
@@ -27,10 +30,25 @@
 
 
 
+// take picture
+
+  startbutton.addEventListener('click', function(ev){
+      takepicture();
+
+  }, false);
+
+
   function takepicture() {
     canvas.width = width;
     canvas.height = height;
-    canvas.getContext('2d').drawImage(video, 0, 0, width, height);
+    
+
+    if (video.style.display != "none")
+        canvas.getContext('2d').drawImage(video, 0, 0, width, height);
+    else
+        canvas.getContext('2d').drawImage(myImg, 0, 0, width, height);
+      
+    
     var data = canvas.toDataURL('image/png'); 
 
 
@@ -40,13 +58,8 @@
     photo.setAttribute('src', data);
   }
 
-  startbutton.addEventListener('click', function(ev){
-      takepicture();
-
-    
 
 
-  }, false);
 
 
 
@@ -71,3 +84,44 @@ function check()
    button.value = "  Take a picture  ";
   }
 }
+
+
+// upload img
+
+
+
+  
+imgInp.addEventListener('change', function(ev){
+
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = imageIsLoaded;
+            reader.readAsDataURL(this.files[0]);
+        }
+
+
+});
+
+
+function imageIsLoaded(e) {
+
+
+   myImg.setAttribute('src', e.target.result);
+   myImg.style.display = 'block';
+   video.style.display = 'none';
+
+
+  
+};
+
+
+
+
+
+
+
+
+
+
+
+

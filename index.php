@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,13 +16,18 @@
 <div id="container">
 
 
-    <video autoplay="true" id="video">
-     
-    </video>
+    <video autoplay="true" id="video"> </video>
 
+	<img id="myImg" src="#" />
 
     <br/>
     <br/>
+
+    <input type='file' id="imgInp" />
+
+
+
+
     <br/>
     <br/>
 
@@ -34,22 +37,27 @@
 	  	
 		  <label>
 		    <input  type="radio" name="choice" value="heart"  onclick="check()"  />
-		    <img class="choiceImg"  src="heart.png">
+		    <img class="choiceImg"  src="img/heart.png">
 		  </label>
 		  
 		  <label>
 		    <input type="radio" name="choice" value="glasses" onclick="check()" />
-		    <img class="choiceImg" src="glasses.png">
+		    <img class="choiceImg" src="img/glasses.png">
 		  </label>
 		  
 		  <label>
 		    <input  type="radio" name="choice" value="hand"  onclick="check()" />
-		    <img class="choiceImg" src="hand.png">
+		    <img class="choiceImg" src="img/hand.png">
 		  </label>
 		  
 		  <label>
 		    <input  type="radio" name="choice" value="tablet"  onclick="check()" />
-		    <img class="choiceImg" src="tablet.png">
+		    <img class="choiceImg" src="img/tablet.png">
+		  </label>
+
+		   <label>
+		    <input  type="radio" name="choice" value="funny-glasses"  onclick="check()" />
+		    <img class="choiceImg" src="img/funny-glasses.png">
 		  </label>
 
 
